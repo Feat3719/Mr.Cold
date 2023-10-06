@@ -1,0 +1,129 @@
+.Body{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.137);
+    justify-content: center;
+
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+}
+
+
+.Form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Form> input{ padding: 1rem 0.5rem;
+    width: 20rem;
+    margin: 0.25rem 0;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid rgba(0, 0, 0, 0.457);
+    
+}
+
+.Form> .FindContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+.Form> .FindContainer>a
+
+{
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.Form > .FindContainer > a:hover{
+    color:gray;
+}
+
+.Form> .FindContainer>label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    /* float: left; */
+    margin: auto ;
+    text-decoration: none;
+    color: black;
+}
+/* .Form> .FindContainer>label>i{
+font-size: 1rem;
+margin: 3px 3px 3px 3px;
+
+} */
+.Form> .FindContainer>label>input{
+display: none;
+ 
+}.Form> .FindContainer>label>i{
+font-size: 1.2rem;margin:0 0.5rem;
+}
+
+.Form> .FindContainer>label>input:checked+.notChecked2,
+.Form> .FindContainer>label>input:not(:checked)+.notChecked2+.Checked2{
+     display: none;
+}
+
+
+
+
+
+
+
+.Form> .Login{
+    background-color: black;
+
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    border: 0.0625rem solid rgba(0, 0, 0, 0.457);
+    cursor: pointer;
+
+    
+}
+.Form> .Login:hover{
+
+    background-color: white;
+    color: black;
+}
+.Form> .Login:active{
+background-color: rgba(0, 0, 0, 0.521);
+color: white;
+}
+
+
+ .SignUp{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.SignUp>div{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+}
+
+.SignUp>a{
+
+    padding:  0 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: black;
+}
+
+.SignUp > a:hover {
+    color: rgba(63, 63, 63, 0.685);
+    
+}
+
