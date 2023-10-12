@@ -1,0 +1,77 @@
+
+
+.ck-editor{
+  /* width: 500px; */
+}
+.ck-toolbar.ck-toolbar_grouping{
+  /* border: 1rem solid black; */
+  /* padding: 0; */
+  
+}
+
+.ck-editor__editable:not(.ck-editor__nested-editable) {
+  /* width: 100%; */
+    /* display: inline-block; */
+    min-height: 400px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    list-style: none;
+    padding: 0;
+
+  }
+  
+ 
+  
+  .pagination li {
+    /* display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; */
+  }
+
+
+  ul.pagination li a {
+    padding: 0.1rem 1rem;
+    box-sizing: border-box;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+
+  }
+  
+  ul.pagination li.active a,
+  ul.pagination li:hover a {
+    color: white;
+
+  }
+
+  
+  ul.pagination li:hover,
+  ul.pagination li a.active,
+  .page-selection ,
+  ul.pagination li.active   {
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition-duration: 0.5s;
+
+
+  }
+  
+  ul.pagination li:active{
+    background-color: rgba(0, 0, 0, 0.099);
+    transition-duration: 1s;
+  }
+  
+  .page-item:last-child {
+    display: none;
+  }

@@ -1,0 +1,277 @@
+.Body{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.137);
+    justify-content: center;
+
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+
+}
+
+.Body>.Title{
+width: 80%;
+}
+.Body>.Title>h1{
+width: 100%;
+text-align: center;
+}
+
+
+.Body>.Title>span{
+    display: inline-block;
+    text-align: end;
+    width: 100%;
+    /* position: relative; */
+    font-size: 0.5rem;
+}
+
+
+.Body>.Form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.Body>.Form Table{
+
+/* border: solid 0.0625rem black; */
+width: 100%;
+align-items: start;
+border-collapse: collapse;
+border-spacing: 0;
+margin: 5rem 0 5rem 0;
+border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.226);
+}
+
+.Body>.Form .Table>tbody>tr{
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.226);
+    /* padding: 3rem; */
+    /* margin: 1rem; */
+    /* background-color: rgba(169, 61, 61, 0.062); */
+   
+
+    }
+
+.Body>.Form>.Table tr>th{
+padding:1rem 0.5rem;
+width: 7rem;
+border-right: 0.0625rem solid rgba(0, 0, 0, 0.059);
+text-align: start;
+color: #000000bd;
+background-color: rgba(0, 0, 0, 0.014);
+}
+.Body>.Form>.Table tr>td{
+    padding: 1rem 0.3rem;
+    font-size: 0.8rem;
+    background-color: rgba(0, 0, 0, 0);
+    display:flex;
+
+    align-items: center;
+    }
+
+    .Body>.Form>.Table>tbody>.AdressRow:nth-of-type(2){
+        background-color: rgb(158, 28, 28);
+        /* border-top: 0.0625rem solid rgba(0, 0, 0, 0.226); */
+        border: none;
+
+    }
+
+    .Body>.Form>.Table .AdressRow>td{
+        padding: 0.7rem 0.3rem;
+        }
+
+
+.Body>.Form>.Table tr>td>input,
+.Body>.Form>.Table tr>td>select
+    {
+    margin: 0 1rem;
+    padding:  0.3rem 0.5rem;
+    border-radius: 0.2rem;
+    border: 0.0625rem solid rgba(0, 0, 0, 0.279);
+}
+
+.Body>.Form>.Table tr>td>[name='middleContact'],
+.Body>.Form>.Table tr>td>[name='lastContact']
+
+{
+    padding:  0.3rem 0.5rem;
+    width: 3rem;
+    text-align: center;
+}
+
+
+.Body>.Form>.Terms{
+    /* width: 0%; */
+    flex-direction: column;
+    display: flex;
+    /* border:  0.0625rem solid black; */
+    padding: 1rem;
+    margin: 1rem 0;
+    
+}
+.Body>.Form>.Terms h1{
+font-size: 1.5rem;
+display: inline-block;
+background-color: rgba(119, 119, 119, 0.055);
+border: dashed rgba(0, 0, 0, 0.107) 0.1625rem;
+border-radius: 0.3rem;
+margin: 0.1rem;
+
+padding: 0.3rem;
+/* margin: 0 1rem; */
+}
+
+
+.Body>.Form>.Terms> div{
+
+    background-color: rgba(117, 123, 128, 0.057);
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.Body>.Form>.Terms label{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+ 
+   
+}
+
+
+
+.Body>.Form>.Terms p{
+
+    height: 10rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    overflow-y: scroll;
+    border:  0.0625rem solid black;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    /* margin-top: 1rem; */
+    color: rgba(0, 0, 0, 0.448);
+    margin: 2rem 0;
+    background-color: white;
+
+
+}
+
+.Body>.Form>button{
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  transition-duration: 0.05s;
+
+}
+.Body>.Form>button:hover{
+  background-color: rgba(5, 201, 109, 0.772);
+  /* border: 0.1rem solid rgba(0, 81, 43, 0.772); */
+  
+}
+.Body>.Form>button:active{
+    background-color: rgba(0, 0, 0, 0.525);
+
+}
+
+
+input[name='address'],
+input[name='detailedAddress']
+
+{
+    width: 40%;
+    padding: 1rem;
+   
+
+}
+
+#AdressButton{
+
+    padding: 0.125rem 3rem; 
+    /* border: solid black 0.0625rem; */
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    border: black solid 0.1625rem;
+}
+#AdressButton:hover{
+
+    background-color: white;
+   color: black;
+}
+
+#AdressButton:active{
+    color: white;
+    border-color: rgba(0, 0, 0, 0.192);
+
+    background-color: rgba(0, 0, 0, 0.479);
+
+  
+
+}
+
+
+
+.notChecked{
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.445);
+    margin: 0 0.5rem;
+    /* box-shadow: 0px 0px 0.5rem black; */
+}
+.Checked{
+    display: none;
+    font-size: 3rem;
+    color: rgba(5, 201, 109, 0.772);
+    margin: 0 0.5rem;
+
+    /* box-shadow: 0px 0px 0.5rem black; */
+}
+.CheckBoxText:checked+.notChecked{
+    display: none;
+   
+
+}
+.CheckBoxText:checked+.notChecked{
+    display: none;
+   
+
+}
+.CheckBoxText:not(:checked)+.notChecked+.Checked{
+    display: none;
+
+}
+
+.CheckBoxText:checked+.notChecked+.Checked{
+    /* display: none; */
+
+}
+
+.CheckBoxText{
+   display: none;
+}
+
+
+.Body>.Form>.Terms>div label> i{
+   font-size: 2rem;
+    
+ 
+   
+}
+
+.notpass{
+    color: red;
+    font-weight: 700;
+    text-decoration: underline;
+}
