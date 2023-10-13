@@ -1,0 +1,284 @@
+/* ------------------- MainSlider ------------------- */
+
+.TopSlide {
+    height:40rem;
+    width: 100%;
+    display:flex;
+    position: relative;
+}
+
+
+.TopSlide_main {
+    width: 100%;
+    height:100%;
+
+    /* position:absolute; */
+}
+
+.TopSlide_wrapper {
+    
+    height:100%;
+
+
+    overflow: hidden;
+    width: 100%;
+    /* height: 50rem; */
+}
+
+.TopSlide_img_1,
+.TopSlide_img_2,
+.TopSlide_img_3,
+.TopSlide_img_4 {
+    width: 100%;
+    /* height: 40rem; */
+    object-fit: covers;
+
+}  
+
+.TopSlide_div {
+    /* flex: 0 0 25%; */
+    display: flex;
+    width: 100%;
+    height:100%;
+    
+}
+.TopSlide_div>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+
+.TopSlide_pagination {
+    width:100%;
+    /* transform:translateY(-13rem); */
+    text-align: center;
+    bottom: 0;
+    z-index: 2;
+    position:absolute;
+}
+
+.TopSlide_pagination_bullet {
+    border: 0.14rem solid rgb(73, 73, 73);
+    margin: 1%;
+    padding-left : 3rem;
+    display: inline-block;
+}
+
+.TopSlide_pagination_bullet.active {
+    border-color : rgb(255, 255, 255);
+}
+
+.TopSlide>h1 {
+font-size: 10rem;
+position: absolute;
+color: aliceblue;
+text-shadow: 1rem 0.5rem 1rem black;
+top: 50%;
+left: 50%;
+padding: 0;
+margin: 1rem;
+transform: translate(-50%, -50%);
+
+
+}
+/* ---------------------------------------------------- */
+
+/* ------------------- Top_inner ------------------- */
+
+
+.Body{
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.838);
+    
+}
+.MainContainer{
+    width: 80%;
+    /* background-color: aquamarine; */
+    padding: 3rem 0;
+    background-color: rgb(255, 255, 255);
+     /* border-left: 0.8rem rgb(0, 0, 0) solid; */
+     /* box-shadow: 0px 0px 0.5rem rgba(0, 0, 0, 0.183); */
+}
+.MainContainer h1{
+    /* text-shadow: 1px 1px 0.2rem rgba(0, 0, 0, 0.724); */
+    margin: 0;
+}
+
+
+.BestItemContainer{
+    display: flex;
+    flex-direction: column;
+    /* justify-self: center; */
+    align-items: center;
+}
+
+.BestItemContainer>ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.BestItemContainer>ul>li{
+    width: 100%;
+    list-style-type: none;
+    padding: 1rem;
+}
+
+.BestItemContainer>ul>li:hover{
+transition-duration: 0.51s;
+background-color: rgb(0, 0, 0);
+}
+.BestItemContainer>ul>li:hover>a
+
+{
+background-color: rgb(60, 60, 60);
+color: white;
+transition-duration: 0.51s;
+}
+
+
+.BestItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+text-decoration: none;
+color: black;
+padding-bottom: 1rem;
+
+}
+
+
+
+.BestItem>img{
+width: 100%;
+margin-bottom: 1rem;
+
+}
+
+
+
+.NewArrivalsContainer{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+    padding-bottom: 1rem;
+    border-bottom: 0.05625rem solid rgba(0, 0, 0, 0.171);
+    margin-bottom: 5rem;
+}
+
+.NewArrivalsContainer>ul{
+    width: 100%;
+    box-sizing: border-box;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    /* background-color: azure; */
+    padding: 3rem;
+}
+
+.NewArrivalsContainer>ul>li{
+    width: 100%;
+    list-style: none;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}
+.NewArrivalsContainer li>a{
+  
+}
+.NewArrivalsContainer img{
+width: 100%;
+}
+.NewArrivalsContainer img:hover{
+scale: 130%;
+transition-duration: 0.5s;
+    }
+
+
+.ReviewContainer{
+    display: flex;
+    width: 100%;
+  
+    flex-direction: column;
+    align-items: center;
+    padding: 2REM;
+    box-sizing: border-box;
+    background-color: rgba(4, 2, 0, 0.03);
+    /* border-top: 0.0625rem solid rgba(0, 0, 0, 0.146); */
+    /* border-bottom: 0.0625rem solid black; */
+
+}
+.ReviewContainer>ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    
+}
+.ReviewContainer>ul>li{
+    width: 100%;
+    padding: 1rem;
+    list-style: none;
+    background-color: white;
+    margin: 1rem;
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.463);
+}
+.ReviewContainer>ul>li:hover{
+scale: 110%;
+transition-duration: 0.2s;
+}
+
+
+.ReviewContainer>ul>li>a{
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.ReviewContainer>ul>li>a>img{
+width: 100%;
+height: 100%;
+/* height: 17rem; */
+
+}
+
+.ReviewContainer>ul>li>a>span:first-of-type{
+    font-weight: 700;
+    padding: 1rem 0;
+}
+
+/* 태블릿의 세로 모드 화면 크기에 주로 해당됩니다. */
+@media screen  and (max-width: 991px){ 
+    
+    .TopSlide {
+        height:20rem;
+     
+    }
+    .TopSlide h1{
+        font-size: 5rem;
+    }
+}
+@media screen and  (max-width:767px){ 
+    
+    .ReviewContainer{
+        display: none;
+    }
+}

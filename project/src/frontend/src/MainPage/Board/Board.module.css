@@ -1,0 +1,159 @@
+.Body{
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.Body>.TitleRow{
+    width: 70%;
+}
+.Body>.TitleRow>span{
+    width: 100%;
+    text-align: end;
+    display: block;
+    font-size: 0.7rem;
+}
+.Body>.TitleRow>h1{
+    text-align: center;
+}
+
+.Body>table{
+    width: 70%;
+    margin-top: 5rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.148);
+    
+}
+.Body>table>thead{
+background-color: rgba(233, 229, 229, 0.034);
+}
+
+.Body>table tr{
+
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.148);
+    display: flex;
+}
+.Body>table tr>a{
+text-decoration: none;
+color: black;
+width: 100%;
+transition-duration: 0.3s;
+display: flex;
+}
+.Body>table tr>a:hover{
+background-color:rgba(128, 113, 81, 0.133) ;
+/* color: white; */
+
+}
+
+
+.Body>table tr th,
+.Body>table tr td
+
+{
+    /* display:inline-block; */
+width: 5%;
+padding: 1rem 0.5rem;
+box-sizing: border-box;
+text-wrap: nowrap;
+text-align: center;
+overflow: hidden;
+box-sizing: border-box;
+font-weight: 500;
+
+
+}
+.Body>table tr th:nth-child(2),
+.Body>table tr td:nth-child(2)
+{
+    width: 20%;
+
+}
+.Body>table tr th:nth-child(3),
+.Body>table tr td:nth-child(3){
+    width: 50%;
+overflow: hidden;
+
+}
+
+.Body>table tr th:nth-child(4),
+.Body>table tr td:nth-child(4){
+    width: 10%;
+}
+
+
+.Body>table tr th:nth-child(5),
+.Body>table tr td:nth-child(5){
+    width: 15%;
+}
+
+.Body>table>tbody{
+    font-size: 0.8rem;
+}
+
+.WriteButtonRow{
+    margin: 0.5rem 0;
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.WriteButtonRow>a{
+text-decoration: none;
+    padding: 0.8rem 2rem;
+    color: white;
+    border-radius: 0.3rem;
+    background-color: black;
+    box-sizing: border-box;
+    transition-duration: 0.3s;
+
+}
+.WriteButtonRow>a:hover{
+
+    background-color: rgba(0, 0, 0, 0.514);
+
+}
+.WriteButtonRow>a:active{
+    background-color: rgb(255, 255, 255);
+    color: black;
+
+}
+
+
+
+.PageContainer{
+    margin: 3rem 0;
+}
+
+.PageContainer >a {
+  
+    padding: 0.1rem 1rem;
+    box-sizing: border-box;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+transition-duration: 0.5s;
+
+
+}
+.PageContainer >a:hover {
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition-duration: 0.3;
+    box-sizing: border-box;
+}
+
+.PageContainer >a.Focus {
+    box-sizing: border-box;
+
+    color: white;
+    background-color: rgb(0, 0, 0);
+}

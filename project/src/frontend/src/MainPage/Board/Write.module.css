@@ -1,0 +1,123 @@
+ .Body{
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.Body>.ContentContainer{
+    /* border: 0.0625rem solid rgba(0, 0, 0, 0.881); */
+    border-radius: 0.2rem;
+    width: 70%;
+    padding:  1rem;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+.Body>.ContentContainer>ul{
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+
+}
+.Body>.ContentContainer>ul>li>label{
+/* background-color: rgba(0, 0, 1, 0.026); */
+width: 100%;
+display: flex;
+/* padding: 0.5rem; */
+border-top: 0.0625rem solid rgba(0, 0, 0, 0.212);
+box-sizing: border-box;
+align-items: center;
+
+}
+.Body>.ContentContainer>ul>li>label>b{
+background-color: #4c4c4c0a;
+
+min-width: 10%;
+text-align: center;
+padding: 0.7rem;
+box-sizing: border-box;
+text-wrap: nowrap;
+
+}
+
+
+.Body>.ContentContainer>ul>li>label>input
+
+{
+display:inline-block;
+    padding: 0.3rem;
+box-sizing: border-box;
+border: solid 0.0625rem rgba(0, 0, 0, 0.238);
+margin: 0 0.5rem ;
+flex: 1;
+
+}
+
+.Body>.ContentContainer>ul>li>label>select{
+    padding: 0.3rem;
+    margin: 0 0.5rem ;
+    border: solid 0.0625rem rgba(0, 0, 0, 0.238);
+
+
+}
+
+
+
+.Body>.TitleRow{
+    width: 70%;
+}
+.Body>.TitleRow>span{
+    width: 100%;
+    text-align: end;
+    display: block;
+    font-size: 0.7rem;
+}
+.Body>.TitleRow>h1{
+    text-align: center;
+} 
+
+.Body>.ContentContainer>.ButtonContainer{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+  .Body>.ContentContainer>.ButtonContainer>button{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.3rem;
+    border: black solid 0.0625rem;
+    min-width: 10%;
+    text-wrap: nowrap;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  }
+
+
+  .Body>.ContentContainer>.ButtonContainer>button:last-of-type{
+    
+  background-color: white;
+  color: black;
+  border: rgba(0, 0, 0, 0.156) solid 0.0625rem;
+
+  }
+  .Body>.ContentContainer>.ButtonContainer>button:hover{
+    background-color: rgba(0, 0, 0, 0.334);
+    border: rgb(255, 255, 255) solid 0.0625rem;
+
+  }
+  .Body>.ContentContainer>.ButtonContainer>button:active{
+    background-color: white;
+    color: black;
+  }
+
