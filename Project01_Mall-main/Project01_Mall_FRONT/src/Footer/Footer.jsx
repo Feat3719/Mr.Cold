@@ -39,7 +39,7 @@ function Footer () {
                             <div className={style.section3}>
                                 <h3>입금계좌안내</h3>
                                 <p>농협 302-1257-4099-31</p>
-                                <p>기업은행 001490527-01-019</p>
+                                <p>기업 001490527-01-019</p>
                                 <p>예금주 : 콜드(주)</p>
                             </div>
                             <div className={style.section4}>

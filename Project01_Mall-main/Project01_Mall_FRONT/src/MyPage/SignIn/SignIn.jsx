@@ -1,89 +1,106 @@
 import style from './SignIn.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-function SignIn(){
-    window.addEventListener('load',()=>{load();});
+function SignIn(e) {
+    // useEffect 사용하여 회원인 경우 블락 //
+    useEffect(() => {
+        const postData = async function() {
+    
+            try {
+              const sessionID = sessionStorage.getItem('sessionID');
+              axios.post('http://localhost:8080/SignIn',{}, 
+              {headers: { 
+                AuthID : sessionID ? sessionID : null,
+            }})
 
-    function save(id, saveBoolean){
+            } catch (error) {
+                alert("error");
+                window.location.href = 'http://localhost:3000/';
+            }
+    
+        }
+        postData();
+    }, []);
+
+    window.addEventListener('load', () => { load(); });
+
+    function save(id, saveBoolean) {
         window.localStorage.savedId = id;
-        window.localStorage.savedChecked= saveBoolean;
+        window.localStorage.savedChecked = saveBoolean;
     }
 
     const load = () => {
-        setId( window.localStorage.savedId ?? '');
-        if (window.localStorage.savedChecked==='true'){
-            document.getElementById('Save').checked= true
+        setID(window.localStorage.savedId ?? '');
+        if (window.localStorage.savedChecked === 'true') {
+            document.getElementById('Save').checked = true
         }
-   
+
     };
 
-    const [id, setId] = useState("");
-    const [pw, setPw] = useState("");
-
+    const [ID, setID] = useState("");
+    const [PW, setPW] = useState("");
     const onIdHandler = (et) => {
-        setId(et.currentTarget.value);
+        setID(et.currentTarget.value);
     }
-  
+
     const onPasswordHandler = (et) => {
-      setPw(et.currentTarget.value)
-     }
-  
-     const onSubmit = async function(e) {
+        setPW(et.currentTarget.value)
+    }
+
+    const onSubmit = async function (e) {
         e.preventDefault();
-        
+
         try {
 
             const response = await axios.post('http://localhost:8080/SignIn', {
-                ID: id,
-                PW: pw
+                ID: ID,
+                PW: PW
             });
 
-            if (!response.data) {
-                alert("에러");
-                throw new Error("No data received from the server.");
-            }
-
             // 로그인 확인 로직
-            if (response.data.success == true) {
-                
-                sessionStorage.setItem('sessionID', id );
-                alert(`${id} 님 환영합니다.` );
-                if (id,document.getElementById('Save').checked){
-                    save(id,document.getElementById('Save').checked);
 
-                }else{
-                    save('',document.getElementById('Save').checked);
+            if (response.data.signin_postkey == 1) {
+
+                sessionStorage.setItem('sessionID', ID);
+                axios.post('http://localhost:8080/SignIn', {
+                    s : '1'
+                }, { headers: { AuthID: ID } })
+                // alert(`${id} 님 환영합니다.` );
+                alert(response.data.Message);
+                if (ID, document.getElementById('Save').checked) {
+                    save(ID, document.getElementById('Save').checked);
+
+                } else {
+                    save('', document.getElementById('Save').checked);
 
                 }
 
-                window.location.href = 'http://localhost:3000/';              
-            } else {
-                sessionStorage.setItem('sessionID', '');
-                alert("아이디와 비밀번호를 다시 확인해주세요.");
+                window.location.href = 'http://localhost:3000/';
+            } else if (response.data.signin_postkey == 2) {
+                alert(response.data.Message);
                 return false;
-            }
+            } else if (response.data.signin_postkey == 3) {
+                alert(response.data.Message);
+                return false;
+            } else alert("잘못된 접근입니다."); window.location.href = 'http://localhost:3000/';
 
         } catch (error) {
             console.error("An error occurred:", error.message);
             alert("오류가 발생했습니다. 다시 시도해주세요.");
+            // window.location.href = 'http://localhost:3000/';
         }
     }
 
+    return (
 
-
-
-
-
-    return(
-        
-        <div className={style.Body}>   
-        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>  
+        <div className={style.Body}>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             <div className={style.Title}>
                 <h1>로그인</h1>
-            </div>    
+            </div>
             <form className={style.Form} onSubmit={onSubmit}>
-                <input type='text' placeholder='아이디' onChange={onIdHandler} value={id} name='id'></input>
-                <input type='password' placeholder='비밀번호' onChange={onPasswordHandler} value={pw} name='pw'></input>
+                <input type='text' placeholder='아이디' onChange={onIdHandler} value={ID} name='id'></input>
+                <input type='password' placeholder='비밀번호' onChange={onPasswordHandler} value={PW} name='pw'></input>
 
 
                 <div className={style.FindContainer}>
@@ -94,9 +111,9 @@ function SignIn(){
 
 
                 </div>
-                
-            
-                 <button type='submit' className={style.Login} onSubmit={onSubmit}>로그인</button>   
+
+
+                <button type='submit' className={style.Login} onSubmit={onSubmit}>로그인</button>
 
             </form>
             <div className={style.SignUp}>
@@ -104,12 +121,12 @@ function SignIn(){
                     <span>아직 회원이 아니신가요?</span>
                     <span>회원이 되시면 다양한 혜택을 누릴 수 있습니다.</span>
                 </div>
-                    <a href='/SignUp'>회원가입</a>
-              
+                <a href='/SignUp'>회원가입</a>
+
             </div>
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
         </div>
-   
+
 
     );
 }

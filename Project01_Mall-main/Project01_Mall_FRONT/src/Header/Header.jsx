@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 function Header() { 
   const [sessionID, setSessionID] = useState('');
+
   useEffect(() => {
     const sessionIDFromStorage = sessionStorage.getItem('sessionID');
     if (sessionIDFromStorage !== null && sessionIDFromStorage !== '') {
@@ -14,28 +15,9 @@ function Header() {
     }
   }, []);
 
-
-  // const withDraw  = async function() {
-  //   const isConfirmed = window.confirm("정말 탈퇴하시겠습니까?");
-  //   if (isConfirmed) {
-  //     try {
-  //       const response = await axios.get(`http://localhost:8080/Project_Mall/Withdraw.jsp?ID=${withDraw.ID}`);
-        
-  //       if (response.data.success) {
-  //         alert('정상적으로 탈퇴되었습니다.');
-  //         window.location.href = '/';
-  //       } else {
-  //         alert(response.data.message);
-  //       } 
-  //     } catch (error) {
-  //       console.arror("ERROR", error);
-  //       alert("탈퇴 중 오류 발생");
-  //     }
-  //   }
-  // };
   const LogOut =  (e) => {
     e.preventDefault();
-    sessionStorage.setItem('sessionID', '');
+    sessionStorage.clear();
     setSessionID(false);
     window.location.href = 'http://localhost:3000';  
   };
@@ -209,13 +191,12 @@ function Header() {
                     <div className={style.cM_menu_layout}>
                       <ul className={style.cM_menu}>
                         <li className={style.cM_record}><a href="/main" style={{color:'blue'}}>MR. {sessionStorage.getItem('sessionID')}</a></li>
-                        <li className={style.cM_record}><a href="/EditMemberInfo" >개인정보수정</a></li>
+                        <li className={style.cM_record}><a href="/EditMemberInfoAuth" >개인정보수정</a></li>
                         <li className={style.cM_record}><a href="/main">장바구니</a></li>
                         <li className={style.cM_record}><a href="/main">최근조회상품</a></li>
-                        <li className={style.cM_record}><a href="/main">관심상품</a></li>
                         <li className={style.cM_record}><a href="/main">쿠폰등록</a></li>
-                        {/* <li className={style.cM_record}><a href="" onClick={withDraw}>회원탈퇴</a></li> */}
                         <li className={style.cM_record}><a href="" onClick={LogOut}>로그아웃</a></li>
+                        {/* <li className={style.cM_record}><a href="" onClick={Withdraw} style={{color:'gray'}} >회원탈퇴</a></li> */}
                       </ul>
                     </div>
                   ) : (
@@ -224,8 +205,8 @@ function Header() {
                       <ul className={style.cM_menu}>
                         <li className={style.cM_record}><a href="/SignIn">로그인</a></li>
                         <li className={style.cM_record}><a href="/SignUp">회원가입</a></li>
-                        <li className={style.cM_record}><a href="/">아이디찾기</a></li>
-                        <li className={style.cM_record}><a href="/">비밀번호찾기</a></li>
+                        <li className={style.cM_record}><a href="/IdFind">아이디찾기</a></li>
+                        <li className={style.cM_record}><a href="/PwFind">비밀번호찾기</a></li>
                       </ul>
                     </div>
                   )}

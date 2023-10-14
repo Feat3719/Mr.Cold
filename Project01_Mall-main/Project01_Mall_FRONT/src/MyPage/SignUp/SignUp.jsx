@@ -1,13 +1,35 @@
 import style from './SignUp.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function SignUp() {
+
+        // useEffect 사용하여 회원인 경우 블락 //
+        useEffect(() => {
+            const postData = async function() {
+        
+                try {
+                  const sessionID = sessionStorage.getItem('sessionID');
+                  axios.post('http://localhost:8080/SignUp',{}, 
+                  {headers: { 
+                    AuthID : sessionID ? sessionID : null,
+                }})
+    
+                } catch (error) {
+                    alert("error");
+                    window.location.href = 'http://localhost:3000/';
+                }
+        
+            }
+            postData();
+        }, []);
+
     const [ID, setID] = useState("")
     const [PW, setPW] = useState("")
     const [PW2, setPW2] = useState("")
     // const [CONTACT, setCONTACT] = useState("")
     // const [CONTACT2, setCONTACT2] = useState("")
+    const [NAME, setNAME] = useState("")
     const [CONTACT, setCONTACT] = useState("")
     const [EMAIL, setEMAIL] = useState("")
     const [ADDRESS, setADDRESS] = useState("")
@@ -57,6 +79,10 @@ function SignUp() {
     // const onCONTACT2Handler = (et) => {
     //     setCONTACT2(et.currentTarget.value);
     // }
+    
+    const onNAMEHandler = (et) => {
+        setNAME(et.currentTarget.value);
+    }
     const onCONTACTHandler = (et) => {
         setCONTACT(et.currentTarget.value);
     }
@@ -75,8 +101,9 @@ function SignUp() {
         let idCon = /^[a-zA-Z][a-zA-Z0-9]{4,9}$/;
         let pwCon = /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-z0-9!@#$%^&*]{9,19}$/;
         let pw2Con = /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-z0-9!@#$%^&*]{9,19}$/;
+        let nameCon = /^(?:[가-힣]{2,5}|[a-zA-Z]{3,10})$/;
         // let contactCon2 = /^\d{4}$/;
-        let contactCon3 = /^01[0-9][0-9]{3,4}[0-9]{4}$/;
+        let contactCon = /^01[0-9][0-9]{3,4}[0-9]{4}$/;
         let emailCon = /^[a-zA-Z0-9]{5,14}@{1}[a-zA-Z0-9.]{5,14}$/;
         let addressCon = /^[가-힣a-zA-Z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\/-]{1,100}$/;
         
@@ -92,7 +119,7 @@ function SignUp() {
             alert("비밀번호를 다시 입력해주세요.(10~20자 길이의 소문자, 숫자, 특수문자의 조합으로 표현됩니다.)")
             return false;
         }
-        if(PW != PW2) {
+        if(PW !== PW2) {
             alert("비밀번호가 일치하지 않습니다.")
             return false;
         }
@@ -100,7 +127,11 @@ function SignUp() {
         //     alert("연락처를 입력해주세요.")
         //     return false;
         // }
-        if(!contactCon3.test(CONTACT)) {
+        if(!nameCon.test(NAME)) {
+            alert("이름을 확인해주세요.")
+            return false;
+        }
+        if(!contactCon.test(CONTACT)) {
             alert("연락처를 확인해주세요.")
             return false;
         }
@@ -125,6 +156,7 @@ function SignUp() {
             const response = await axios.post(url, {
                 ID : ID,
                 PW : PW,
+                NAME : NAME,
                 CONTACT : CONTACT,
                 EMAIL : EMAIL,
                 ADDRESS : ADDRESS
@@ -205,6 +237,17 @@ function SignUp() {
                                     </span>) : ''}
                                 
 
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                이름
+                            </th>
+
+                            <td>
+                                <input type='text' placeholder='이름' onChange={onNAMEHandler} id="input_NAME" ></input> <span>이름은 한글 2자~5자 혹은 영어 3자~10자로 입력 가능</span>
 
                             </td>
 

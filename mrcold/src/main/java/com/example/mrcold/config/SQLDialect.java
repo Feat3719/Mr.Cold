@@ -1,5 +1,7 @@
 package com.example.mrcold.config;
 
+
+
 import java.sql.Types;
 
 import org.hibernate.dialect.Dialect;
@@ -62,7 +64,7 @@ public class SQLDialect extends Dialect {
     }
 
     protected String getLimitString(String query, boolean hasOffset) {
-        return new StringBuffer(query.length() + 20).append(query).append(hasOffset ? " limit ? offset ?" : " limit ?")
+        return new StringBuffer(query.length() + 20).append(query).append(hasOffset ? " limit ?, ?" : " limit ?")
                 .toString();
     }
 

@@ -1,6 +1,6 @@
 import style from './Bottom.module.css';
 
-function ViewCategory(){
+function Bottom(){
     return(
       <div className={style.Body}>
       <div className={style.Body2}>
@@ -36,7 +36,7 @@ function ViewCategory(){
 
       <ul className={style.ProductContainer}>
         <li>
-          <a href='www.naver.com'>
+          <a href=''>
             <img src='https://www.sexysuit.kr/web/product/medium/202307/acce806ec616231b07003187c749e13a.webp' alt='shirt'></img>
 
             <div>
@@ -46,7 +46,7 @@ function ViewCategory(){
           </a>
         </li>
         <li>
-          <a href='www.naver.com'>
+          <a href=''>
             <img src='https://www.sexysuit.kr/web/product/medium/202307/acce806ec616231b07003187c749e13a.webp' alt='shirt'></img>
 
             <div>
@@ -56,7 +56,7 @@ function ViewCategory(){
           </a>
         </li>
         <li>
-          <a href='www.naver.com'>
+          <a href=''>
             <img src='https://www.sexysuit.kr/web/product/medium/202307/acce806ec616231b07003187c749e13a.webp' alt='shirt'></img>
 
             <div>
@@ -66,7 +66,7 @@ function ViewCategory(){
           </a>
         </li>
         <li>
-          <a href='www.naver.com'>
+          <a href=''>
             <img src='https://www.sexysuit.kr/web/product/medium/202307/acce806ec616231b07003187c749e13a.webp' alt='shirt'></img>
 
             <div>
@@ -96,4 +96,4 @@ function ViewCategory(){
   }
 
 
-  export default ViewCategory;
+  export default Bottom;

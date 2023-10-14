@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './MainPage.module.css';
 import MainSlider from './Main_Slider';
 
 function MainPage () {
+    
     return(
         <>
         <div >

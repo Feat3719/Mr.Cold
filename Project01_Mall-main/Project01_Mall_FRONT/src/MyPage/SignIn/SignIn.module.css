@@ -124,6 +124,10 @@ color: white;
 
 .SignUp > a:hover {
     color: rgba(63, 63, 63, 0.685);
+    padding:  0 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.3rem;
     
 }
 

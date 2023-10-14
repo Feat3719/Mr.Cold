@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<mrcold>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.mrcold.Application",
+            "projectName": "mrcold",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

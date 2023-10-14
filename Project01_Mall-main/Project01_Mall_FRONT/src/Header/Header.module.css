@@ -88,7 +88,10 @@ background-color: blanchedalmond;
     
 }
 .categoryMenu_menu:hover>.cM_menu_layout{
-display: block;
+/* display: block; */
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-1rem);
 }
 
 
@@ -96,11 +99,13 @@ display: block;
 
 .cM_menu_layout{
     background-color: rgb(255, 255, 255);
-    display:none;
+    visibility: hidden;
     position: absolute;
-    top: 100%;
+    top: 120%;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
     width: 100%;
+    opacity : 0; 
+    transition: all 0.3s ease-in-out;
 }
 
 .cM_menu_title{

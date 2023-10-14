@@ -19,6 +19,9 @@ public class Member {
     @Column(name = "PW")
     String PW;
 
+    @Column(name = "NAME")
+    String NAME;
+
     @Column(name = "CONTACT")
     String CONTACT;
 
