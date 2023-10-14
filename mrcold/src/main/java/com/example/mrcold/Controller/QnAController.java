@@ -56,7 +56,8 @@ public class QnAController {
         String subject = (String) data.get("subject");
         Integer id = (Integer) data.get("pid");
 
-        System.out.println((String) session.getAttribute("id"));
+
+        // System.out.println((String) session.getAttribute("id"));
 
         // if (session.getAttribute("id")==null) {
         // response.put("success", false);
@@ -107,14 +108,14 @@ public class QnAController {
             }else{                                                
 
                 
-            // qna.setCreatedDate(new Date());
-            qna.setCreatedDate(null);
+            qna.setCreatedDate(new Date());
+            // qna.setCreatedDate(null);
 
             }
-            
-            qna.setSubject("1");
-            qna.setTitle("title");
-            qna.setContent("content");
+            session.setAttribute("id", "root123");
+            qna.setSubject(subject);
+            qna.setTitle(title);
+            qna.setContent(content);
             Member member = new Member();
             member.setID((String) session.getAttribute("id"));
             qna.setMember(member);
@@ -146,7 +147,6 @@ public class QnAController {
     public Map<String, Object>  getList(@RequestParam(required = false, defaultValue = "1") Integer p){
         
         Map<String, Object> map = new HashMap<String, Object>();
-         System.out.println("@@@@@@@@@@@@@"+session.getAttribute("id"));
 
         Sort sort = Sort.by(Direction.DESC,"id");
 
@@ -202,32 +202,26 @@ public class QnAController {
     
             if (loginId == null) {
                 response.put("message", "login_error");
-                System.out.println(1);
             }else if(!id.equals(loginId)){
                 response.put("message", "user_info_error");
-                                System.out.println(2);
 
             }
             
             else if (pid == null) {
-                                System.out.println(3);
 
                 response.put("message", "delete_error");
             }
              else {
                 Optional<QnA> findQnA = qnaRepository.findById(pid);
                 if (findQnA.isEmpty()) {
-                                    System.out.println(4);
 
                     response.put("message", "not_find_error");
                 }else if(!findQnA.get().getMember().getID().equals(id)){
                      response.put("message", "authority_error");
-                                     System.out.println(5);
 
                 }else {
                     qnaRepository.delete(findQnA.get());
                     response.put("message", "success");
-                                    System.out.println(6);
 
                 }
             }

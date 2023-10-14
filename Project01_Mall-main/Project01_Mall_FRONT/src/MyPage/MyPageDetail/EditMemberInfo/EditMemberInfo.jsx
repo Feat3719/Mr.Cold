@@ -5,27 +5,27 @@ import axios from "axios"
 
 function EditMemberInfo() {
     // useEffect 사용하여 비회원인 경우, 회원인경우(비밀번호 인증 안한경우) 블락 //
-    // useEffect(() => {
-    //     const postData = async function() {
+    useEffect(() => {
+        const postData = async function() {
 
-    //         try {
-    //           const sessionID = sessionStorage.getItem('sessionID');
-    //           const sessionPwForAuth = sessionStorage.getItem('sessionPwForAuth');
-    //           axios.post('http://localhost:8080/EditMemberInfo',{}, 
-    //           {headers: { 
-    //             AuthID : sessionID ? sessionID : null,
-    //             AuthPW : sessionPwForAuth ? sessionPwForAuth : null
-    //         }})
+            try {
+              const sessionID = sessionStorage.getItem('sessionID');
+              const sessionPwForAuth = sessionStorage.getItem('sessionPwForAuth');
+              axios.post('http://localhost:8080/EditMemberInfo',{}, 
+              {headers: { 
+                AuthID : sessionID ? sessionID : null,
+                AuthPW : sessionPwForAuth ? sessionPwForAuth : null
+            }})
     
             
-    //         } catch (error) {
-    //             alert("error");
-    //             window.location.href = 'http://localhost:3000/';
-    //         }
+            } catch (error) {
+                alert("error");
+                window.location.href = 'http://localhost:3000/';
+            }
     
-    //     }
-    //     postData();
-    // }, []);
+        }
+        postData();
+    }, []);
 
     const [PW, setPW] = useState("")
     const [PW2, setPW2] = useState("")

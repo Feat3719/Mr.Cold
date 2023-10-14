@@ -57,6 +57,13 @@ public class MemberInterceptor implements HandlerInterceptor {
                         return false;
                     } else return true;
                 }
+                if (url.equals("/EditMemberInfo")) {
+                    if(AuthPW == null){
+                        response.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+                        return false;
+                    } else return true;
+                }
+                
                 
             } else {
                 // 2. 클라이언트에 session 값은 있지만 DB에 없는 경우 = 고의해킹
@@ -64,10 +71,14 @@ public class MemberInterceptor implements HandlerInterceptor {
             }
         } else { 
             // 3. 비회원인경우
-            if (url.equals("/EditMemberInfo_getDt")) {
-                response.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
-                return false;
-            }
+            // if (url.equals("/EditMemberInfo_getDt")) {
+            //     response.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+            //     return false;
+            // }
+            // if (url.equals("/EditMemberInfo")) {
+            //     response.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+            //     return false;
+            // }
             // if (url.equals("/PwFind_revise")) {
             //     return false;
             // }

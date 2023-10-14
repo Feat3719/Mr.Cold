@@ -9,26 +9,30 @@ function EditMemberInfoAuth() {
     const onPWHandler = (et) => {
         setPW(et.currentTarget.value);
     }
-    const onSubmit = async function(e) {
+    const onSubmit = async function (e) {
         try {
             e.preventDefault();
             const postData = await axios.post(
                 'http://localhost:8080/EditMemberInfoAuth', {
-                    ID : sessionStorage.getItem("sessionID"),
-                    PW : PW,
-                    // AUTH : "true"
-                }
+                ID: sessionStorage.getItem("sessionID"),
+                PW: PW
+            }
             )
-            // alert(postData.data.moveToEditInfo);
-            if(postData.data.moveToEditInfo) {
-                const sessionID = sessionStorage.getItem('sessionID');
-                axios.post('http://localhost:8080/EditMemberInfo_getDt', {s:"1"}, { headers: { AuthID : sessionID ? sessionID : null } });
+            if (postData.data.moveToEditInfo) {
                 sessionStorage.setItem('sessionPwForAuth', "true");
+                const sessionID = sessionStorage.getItem('sessionID');
+                axios.post('http://localhost:8080/EditMemberInfo_getDt', { s: "1" },
+                    {
+                        headers: {
+                            AuthID: sessionID ? sessionID : null,
+                            AuthPW: sessionStorage.getItem('sessionPwForAuth')
+                        }
+                    });
                 window.location.href = "http://localhost:3000/EditMemberInfo"
             } else {
                 alert(postData.data.Message);
                 window.location.href = "http://localhost:3000/EditMemberInfoAuth"
-                
+
             }
         } catch (error) {
             console.error("Error during the signup:", error);
@@ -56,19 +60,19 @@ function EditMemberInfoAuth() {
                             <tr>
                                 <th>비밀번호</th>
                                 <td>
-                                    <input className={style.input} onChange = {onPWHandler} type='password' placeholder='비밀번호'></input> <span></span>
+                                    <input className={style.input} onChange={onPWHandler} type='password' placeholder='비밀번호'></input> <span></span>
                                 </td>
                             </tr>
- 
+
                         </tbody>
                     </table>
-                    <button type = "submit" onSubmit={onSubmit} >수정</button>
+                    <button type="submit" onSubmit={onSubmit} >수정</button>
                 </form>
             </div>
 
         </>
     );
-    
+
 }
 
 export default EditMemberInfoAuth
